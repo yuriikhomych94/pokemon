@@ -1,0 +1,76 @@
+<meta name="viewport" content="width=device-width">
+<div class="title__name">
+  <h1 class="title">Pokedex</h1>
+</div>
+
+<div class="pokemons">
+
+  <!-- MAIN -->
+  <div class="mainList">
+    <div class="rowLeft">
+      <div class="card" (click)="moreType(status, i)" *ngFor="let pokemon of data; let i = index">
+        <div class="cardImages">
+          <img src={{pokemon.image}} alt="" class="image">
+        </div>
+        <h3 class="name">{{ pokemon.name }}</h3>
+
+        <div class="pokemonsAbilities">
+          <div class="abilities" *ngFor="let ability of pokemon.abilities">
+            <h4 class="ability">{{ ability }}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button (click)="morePokemons()" class="loadMore">Load More</button>
+  </div>
+
+  <!-- DETAILS -->
+  <div class="rowRight" *ngIf="status">
+    <div class="cardMoreDetails">
+      <div class="imagesDetails">
+        <img src="{{detailsImage}}" alt="" class="imageDetails">
+      </div>
+      <div class="nameDetails">
+        <h2> {{detailsName}} </h2>
+      </div>
+      <table class="abilitiesTable">
+        <tr>
+          <th>Type</th>
+          <th>Fire</th>
+        </tr>
+        <tr>
+          <td>Attack </td>
+          <td>{{details.attack}}</td>
+        </tr>
+        <tr>
+          <td>Defense</td>
+          <td>{{details.attack}}</td>
+        </tr>
+        <tr>
+          <td>HP</td>
+          <td>{{details.hp}}</td>
+        </tr>
+        <tr>
+          <td>SP Attack</td>
+          <td>{{details.specialAttack}}</td>
+        </tr>
+        <tr>
+          <td>SP Defense</td>
+          <td>{{details.specialDefense}}</td>
+        </tr>
+        <tr>
+          <td>Speed</td>
+          <td>{{details.speed}}</td>
+        </tr>
+        <tr>
+          <td>Weight</td>
+          <td>{{details.weight}}</td>
+        </tr>
+        <tr>
+          <td>Total Moves</td>
+          <td>{{details.totalMoves}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
